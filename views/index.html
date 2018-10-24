@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+   <head>
+       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+   <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/style.css">
+      <title>nicolascribbles | Exercise Tracker | Free Code Camp</title>
+      <link href="https://bootswatch.com/3/slate/bootstrap.min.css" rel="stylesheet" type="text/css">
+   </head>
+
+   <body>
+      <header>
+         <h1>Exercise tracker</h1>
+     </header>
+  <div id="main">
+    
+    <section>
+      <h2>Create a New User</h2>
+      <pre>POST /api/new-user</pre>
+      <form action="/userName" method="post">
+        <div class="input-row"><input type="text" placeholder="username" name="name" minlength="3" maxlength="20" pattern="^\w{3,20}$" title="use only letters, numbers and underscores" required /></div>
+        <input type="submit" class="submit-btn" value="Register">
+      </form>
+    </section>
+
+    <section>
+      <h2>Add Exercise</h2>
+      <pre>POST /api/exercise/add</pre>
+      <form action="/exerCise" method="post">
+        <div class="input-row"><input type="text"   placeholder="userID"           name="userID"/></div>
+        <div class="input-row"><input type="text"   placeholder="description"        name="description"></div>
+        <div class="input-row"><input type="number" placeholder="duration (minutes)" name="duration"    min="1"          max="9999"                                                                            required /></div>
+        <div class="input-row"><input type="date"   placeholder="date"               name="date"        min="1970-01-01" max="2999-12-31" id="date"                                                            required /></div>
+        <input type="submit" class="submit-btn" value="Log Exercise">
+      </form>
+    </section>
+
+    <section>
+      <h2>User Information</h2>
+      <br/>
+      <span class="section-title">Use this URL to get your Info</span>
+      <code>https://tr4ckr.glitch.me/user?userID={userID}</code>
+    </section>
+ 
+     </div>
+
+  <script>
+    // Set the placeholder in the exercise date to today
+    const today = new Date()
+    today.setMinutes(today.getMinutes() - today.getTimezoneOffset())
+    document.getElementById("date").value = today.toJSON().slice(0, 10)
+  </script>
+  <script type="text/javascript" src="main.js"></script>
+  </body></html>
